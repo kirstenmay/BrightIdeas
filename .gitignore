@@ -1,0 +1,34 @@
+######################################
+# Visual Studio per-user settings data
+######################################
+*.suo
+*.user
+
+####################
+# Build/Test folders
+####################
+**/.vs/
+**/bin/
+**/obj/
+**/Migrations/
+**/TestResults/
+**/Temp/
+**/NuGet.exe
+**/buildlogs/
+**/Deployment/
+**/packages
+**/launchSettings.json
+
+**/project.lock.json
+
+**/.vscode
+**/.idea
+*.userprefs
+
+/Tools/LambdaTestTool/Amazon.Lambda.TestTool/ExternalCommands/App/**
+
+**/node_modules/
+**/TestGenerations/
+/Blueprints/YeomanGenerator/generator-aws-lambda-dotnet/Blueprints/**
+/Blueprints/YeomanGenerator/generator-aws-lambda-dotnet/app/manifest.js
+/Tools/LambdaTestTool/Amazon.Lambda.TestTool/ExternalCommands/App

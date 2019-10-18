@@ -1,0 +1,59 @@
+@{
+    ViewData["Title"] = "Ideas";
+}
+
+@model WrapperModel
+<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    <div class="container">
+        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Ideas">BrightIdeas</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+            <ul class="navbar-nav flex-grow-1">
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="LogOut">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="text-center">
+    <h1 class="display-4">Welcome, @Model.User.Alias</h1>
+</div>
+<div class="row">
+    <div class="col-10 offset-1">
+        <form action="CreateIdea" method="post">
+            <div class="form-group">
+                <label for="NewIdea.Text">Add a New Idea</label>
+                <textarea asp-for="NewIdea.Text" class="form-control" placeholder="Write idea here...." rows="4"></textarea>
+                <span asp-validation-for="NewIdea.Text"></span>
+            </div>
+            <input type="submit" class="btn btn-outline-success" value="+Idea">
+        </form>
+    </div>
+</div>
+<div class="row" id="margin">
+    <div class="col-8 offset-2">
+        @{
+            foreach(Idea idea in Model.AllIdeas)
+            {
+                <div class="card" style="width: 50 rem;">
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="DisplayUser/@idea.Creator.UserId">@idea.Creator.Alias</a></h5>
+                        <h6 class="card-subtitle mb-2 text-muted">@idea.Created_at.ToString("MMMM dd, yyyy")</h6>
+                        <p class="card-text">@idea.Text</p>
+                        <a href="Like/@idea.IdeaId">Like</a> | 
+                        <a href="DisplayIdea/@idea.IdeaId">@idea.IdeaLikes.Count Users Liked </a>
+                        <br>
+                         @if(@Model.User.UserId == idea.Creator.UserId)
+                         {
+                             <a href="Delete/@idea.IdeaId" class="card-link">Delete</a>
+                         }
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>

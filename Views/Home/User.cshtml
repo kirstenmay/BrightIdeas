@@ -1,0 +1,33 @@
+<form asp-action="Create" method="post">
+    @model User
+    <div class="form-group">
+        <label asp-for="Name">Name</label>
+        <input type = "text" asp-for="Name" class = "form-control" placeholder = "Name">
+        <span asp-validation-for="Name"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Alias">Alias</label>
+        <input type = "text" asp-for="Alias" class = "form-control" placeholder = "Alias">
+        <span asp-validation-for="Alias"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Email">Email</label>
+        <input type = "email" asp-for="Email" class = "form-control" placeholder = "Email">
+        <span asp-validation-for="Email"></span>
+    </div>
+    <!-- <div class="form-group">
+        <input type = "date" asp-for="Birthday" class = "form-control">
+        <span asp-validation-for="Birthday"></span>
+    </div> -->
+    <div class="form-group">
+        <label asp-for="Password">Password</label>
+        <input type = "password" asp-for="Password" class = "form-control" placeholder = "Password">
+        <span asp-validation-for="Password"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ConfirmPassword">Confirm Password</label>
+        <input type = "password" asp-for="ConfirmPassword" class = "form-control" placeholder = "Confirm Password">
+        <span asp-validation-for="ConfirmPassword"></span>
+    </div>
+    <input value="Submit" type="submit" class = "btn btn-outline-success">
+</form>
